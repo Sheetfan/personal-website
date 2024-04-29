@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
 interface Mouse{
-    x:number | undefined,
-    y:number | undefined
+    x:number,
+    y:number
 }
 
 class Circle {
@@ -55,22 +55,25 @@ class Circle {
     draw():void {
         if (!this.canvas) return;
         const c = this.canvas.getContext('2d');
-        c.beginPath();
-        c.arc(this.x, this.y, this.radiusCurrent, 0, Math.PI * 2);
-        c.fillStyle = this.colour;
-        c.fill();
+        if(c){
+            c.beginPath();
+            c.arc(this.x, this.y, this.radiusCurrent, 0, Math.PI * 2);
+            c.fillStyle = this.colour;
+            c.fill();
+        }
+        
     }
 }
 export default function Canvas(){
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     let circles:Circle[] = [];
-    const mouse: Mouse = { x: undefined, y: undefined };
-    let maxRadius = 40;
-    let minRadius = 4;
-    let mouseDistance = 50;
-    let circleSpeed = 0.25;
-    let colourArray = [
+    const mouse: Mouse = { x: 0, y: 0 };
+    const maxRadius = 40;
+    const minRadius = 4;
+    const mouseDistance = 50;
+    const circleSpeed = 0.25;
+    const colourArray = [
         "#00FA73",
         "#00FA20",
         "#00FAC9",
