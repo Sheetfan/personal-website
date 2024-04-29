@@ -20,7 +20,6 @@ export default function Navbar(){
             });
             
             if(currentSectionId !== ''){
-                console.log(currentSectionId);
                 setActiveSection(currentSectionId);
             }
             

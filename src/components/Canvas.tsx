@@ -69,7 +69,7 @@ export default function Canvas(){
     let maxRadius = 40;
     let minRadius = 4;
     let mouseDistance = 50;
-    let circleSpeed = .25;
+    let circleSpeed = 0.25;
     let colourArray = [
         "#00FA73",
         "#00FA20",
