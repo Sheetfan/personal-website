@@ -39,8 +39,8 @@ const sendEmail = (e) => {
     return
   }
   emailjs
-    .sendForm('service_dquj1e2', 'template_j1637h7', form.current, {
-      publicKey: 'I8rIgKKoN6pLbppxi',
+    .sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, {
+      publicKey: process.env.PUBLIC_KEY,
     })
     .then(
       () => {
